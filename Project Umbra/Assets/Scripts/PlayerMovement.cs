@@ -29,5 +29,4 @@ public class PlayerMovement : MonoBehaviour
 
         rb2D.velocity = (Vector3.ClampMagnitude(rb2D.velocity, maxSpeed));
     }
-
 }
