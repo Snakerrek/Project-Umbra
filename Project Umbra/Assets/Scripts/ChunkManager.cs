@@ -18,16 +18,14 @@ public class ChunkManager : MonoBehaviour
 
     void Update()
     {
-        if(CheckIfPlayerChangedChunk())
+        Debug.Log(GetPlayerPosRelToChunk());
+        if (CheckIfPlayerChangedChunk())
         {
             playerFixedPos = GetPlayerPosRelToChunk();
+            Vector2 chunk = new Vector2(chunkSize, chunkSize);
 
-            SpawnChunk(new Vector2(playerFixedPos.x * chunkSize, playerFixedPos.y * chunkSize)); // Spawning chunk under player
-
-        }
-        else
-        {
-            Debug.Log("Player did not change the chunk");
+            if(!ChunkExistenceCheck(playerFixedPos * chunk))
+                SpawnChunk(playerFixedPos * chunk);
         }
     }
 
@@ -36,21 +34,21 @@ public class ChunkManager : MonoBehaviour
         playerOriginPos = player.transform.position;
         int x;
         int y;
-
+        
         if (playerOriginPos.x < 0)
-            x = Mathf.CeilToInt(playerOriginPos.x / 16);
+            x = Mathf.FloorToInt((playerOriginPos.x + 16)/32);
         else if (playerOriginPos.x > 0)
-            x = Mathf.FloorToInt(playerOriginPos.x / 16);
+            x = Mathf.CeilToInt((playerOriginPos.x - 16)/32);
         else
             x = 0;
 
         if (playerOriginPos.y < 0)
-            y = Mathf.CeilToInt(playerOriginPos.y / 16);
+            y = Mathf.FloorToInt((playerOriginPos.y + 16)/32);
         else if (playerOriginPos.y > 0)
-            y = Mathf.FloorToInt(playerOriginPos.y / 16);
+            y = Mathf.CeilToInt((playerOriginPos.y - 16)/32);
         else
             y = 0;
-
+        
         return new Vector2(x, y);
     }
 
