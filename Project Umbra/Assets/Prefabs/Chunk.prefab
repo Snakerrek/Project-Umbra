@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3906137668270483756}
+  - component: {fileID: 99760399858027360}
   m_Layer: 0
   m_Name: Second_plan
   m_TagString: Untagged
@@ -30,6 +31,34 @@ Transform:
   m_Father: {fileID: 3906137668551700990}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &99760399858027360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906137668270483757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aafc416931648d45bf177556f237291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minStarsToGenerate: 5
+  maxStarsToGenerate: 15
+  minStarScale: 0.2
+  maxStarScale: 0.4
+  minGalaxiesToGenerate: 0
+  maxGalaxiesToGenerate: 1
+  minGalaxyScale: 0
+  maxGalaxyScale: 1
+  chunkWidth: 32
+  chunkHeight: 32
+  starPrefabs:
+  - {fileID: 8695710870773588604, guid: 1fe04bb05f960384197e987bdd37b1fc, type: 3}
+  - {fileID: 5994334993055067280, guid: 724f34f010e66b54db91bb90b01724e9, type: 3}
+  - {fileID: 8515874676778228532, guid: f4053214510ba3a429cffc6d99abb757, type: 3}
+  - {fileID: 5193700902972688188, guid: 4e5dd41c831dea542b38afeba237d780, type: 3}
+  galaxyPrefabs: []
 --- !u!1 &3906137668350196652
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,6 +68,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3906137668350196655}
+  - component: {fileID: 403341720446987312}
   m_Layer: 0
   m_Name: Third_Plan
   m_TagString: Untagged
@@ -60,6 +90,34 @@ Transform:
   m_Father: {fileID: 3906137668551700990}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &403341720446987312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906137668350196652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aafc416931648d45bf177556f237291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minStarsToGenerate: 30
+  maxStarsToGenerate: 100
+  minStarScale: 0.05
+  maxStarScale: 0.15
+  minGalaxiesToGenerate: 0
+  maxGalaxiesToGenerate: 1
+  minGalaxyScale: 0
+  maxGalaxyScale: 1
+  chunkWidth: 32
+  chunkHeight: 32
+  starPrefabs:
+  - {fileID: 8695710870773588604, guid: 1fe04bb05f960384197e987bdd37b1fc, type: 3}
+  - {fileID: 5994334993055067280, guid: 724f34f010e66b54db91bb90b01724e9, type: 3}
+  - {fileID: 8515874676778228532, guid: f4053214510ba3a429cffc6d99abb757, type: 3}
+  - {fileID: 5193700902972688188, guid: 4e5dd41c831dea542b38afeba237d780, type: 3}
+  galaxyPrefabs: []
 --- !u!1 &3906137668551700991
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,6 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3906137668551700990}
   - component: {fileID: 3906137668551700977}
+  - component: {fileID: 1983913262}
   m_Layer: 0
   m_Name: Chunk
   m_TagString: Untagged
@@ -145,6 +204,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &1983913262
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906137668551700991}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 32, y: 32, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3906137669040878376
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,8 +262,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minStarsToGenerate: 1
   maxStarsToGenerate: 5
+  minStarScale: 0.5
+  maxStarScale: 0.75
   minGalaxiesToGenerate: 0
-  maxGalaxiesToGenerate: 0
+  maxGalaxiesToGenerate: 1
+  minGalaxyScale: 0
+  maxGalaxyScale: 1
   chunkWidth: 32
   chunkHeight: 32
   starPrefabs:
