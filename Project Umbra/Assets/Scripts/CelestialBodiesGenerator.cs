@@ -16,13 +16,14 @@ public class CelestialBodiesGenerator : MonoBehaviour
     [Header("Chunk Information")]
     [SerializeField] float chunkWidth = 32.0f;
     [SerializeField] float chunkHeight = 32.0f;
+    Vector2 chunkPos;
 
     [Header("Prefabs")]
     [SerializeField] GameObject[] starPrefabs = null;
     [SerializeField] GameObject[] galaxyPrefabs = null;
     void Start()
     {
-        var starRotation = Quaternion.Euler(0f, 0f, 45f);
+        chunkPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
         GenerateStars();
         GenerateGalaxies();
     }
@@ -38,8 +39,8 @@ public class CelestialBodiesGenerator : MonoBehaviour
             int starPrefabIndex = Mathf.RoundToInt(Random.Range(0, starPrefabs.Length - 1));
 
             // Instantiating
-            var newStar = Instantiate(starPrefabs[starPrefabIndex], starPosition, starRotation);
-            newStar.transform.parent = gameObject.transform;
+            var newStar = Instantiate(starPrefabs[starPrefabIndex], chunkPos + starPosition, starRotation, gameObject.transform);
+            Debug.Log(gameObject.transform);
         }
     }
     void GenerateGalaxies()
@@ -53,7 +54,7 @@ public class CelestialBodiesGenerator : MonoBehaviour
             int galaxyPrefabIndex = Mathf.RoundToInt(Random.Range(0, galaxyPrefabs.Length - 1));
 
             // Instantiating
-            var newGalaxy = Instantiate(starPrefabs[galaxyPrefabIndex], galaxyPosition, galaxyRotation);
+            var newGalaxy = Instantiate(starPrefabs[galaxyPrefabIndex], chunkPos + galaxyPosition, galaxyRotation);
             newGalaxy.transform.parent = gameObject.transform;
         }
     }
