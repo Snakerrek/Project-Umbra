@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class ChunkManager : MonoBehaviour
 {
     [SerializeField] GameObject chunkPrefab = null;
-    [SerializeField] float chunkSize = 32.0f;
+    float chunkSize = 32.0f;
     GameObject player;
     Vector3 playerOriginPos;
     Vector2 playerFixedPos; // Player position relative to chunk size
@@ -21,11 +22,7 @@ public class ChunkManager : MonoBehaviour
         Debug.Log(GetPlayerPosRelToChunk());
         if (CheckIfPlayerChangedChunk())
         {
-            playerFixedPos = GetPlayerPosRelToChunk();
-            Vector2 chunk = new Vector2(chunkSize, chunkSize);
-
-            if(!ChunkExistenceCheck(playerFixedPos * chunk))
-                SpawnChunk(playerFixedPos * chunk);
+            SpawnChunks();
         }
     }
 
@@ -36,16 +33,16 @@ public class ChunkManager : MonoBehaviour
         int y;
         
         if (playerOriginPos.x < 0)
-            x = Mathf.FloorToInt((playerOriginPos.x + 16)/32);
+            x = Mathf.FloorToInt((playerOriginPos.x + 16)/chunkSize);
         else if (playerOriginPos.x > 0)
-            x = Mathf.CeilToInt((playerOriginPos.x - 16)/32);
+            x = Mathf.CeilToInt((playerOriginPos.x - 16)/chunkSize);
         else
             x = 0;
 
         if (playerOriginPos.y < 0)
-            y = Mathf.FloorToInt((playerOriginPos.y + 16)/32);
+            y = Mathf.FloorToInt((playerOriginPos.y + 16)/chunkSize);
         else if (playerOriginPos.y > 0)
-            y = Mathf.CeilToInt((playerOriginPos.y - 16)/32);
+            y = Mathf.CeilToInt((playerOriginPos.y - 16)/chunkSize);
         else
             y = 0;
         
@@ -56,7 +53,7 @@ public class ChunkManager : MonoBehaviour
     {
         return Physics.CheckSphere(position, 1.0f);
     }
-    void SpawnChunk(Vector2 position)
+    void SpawnOneChunk(Vector2 position)
     {
         Instantiate(chunkPrefab, position, Quaternion.identity, gameObject.transform);
     }
@@ -69,5 +66,21 @@ public class ChunkManager : MonoBehaviour
         }
         else
             return false;
+    }
+
+    void SpawnChunks()
+    {
+        playerFixedPos = GetPlayerPosRelToChunk();
+        Vector2 chunk = new Vector2(chunkSize, chunkSize);
+
+        for (int i = -1; i <= 1; i++)
+        {
+            for (int j = -1; j <= 1; j++)
+            {
+                Vector2 tmp = new Vector2((playerFixedPos.x + i) * chunk.x, (playerFixedPos.y + j) * chunk.y);
+                if (!ChunkExistenceCheck(tmp))
+                    SpawnOneChunk(tmp);
+            }
+        }
     }
 }
