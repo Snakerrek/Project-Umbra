@@ -35,7 +35,7 @@ public class CelestialBodiesGenerator : MonoBehaviour
     void GenerateStars()
     {
         int amountOfStars = Mathf.RoundToInt(Random.Range(minStarsToGenerate, maxStarsToGenerate));
-        for(int i = 0; i < amountOfStars; i++)
+        for(int i = 0; i <= amountOfStars; i++)
         {
             // Generating random numbers
             Vector2 starPosition = GetRandomPosition();
@@ -53,7 +53,7 @@ public class CelestialBodiesGenerator : MonoBehaviour
     void GenerateGalaxies()
     {
         int amountOfGalaxies = Mathf.RoundToInt(Random.Range(minGalaxiesToGenerate, maxGalaxiesToGenerate));
-        for (int i = 0; i < amountOfGalaxies; i++)
+        for (int i = 0; i <= amountOfGalaxies; i++)
         {
             // Generating random numbers
             Vector2 galaxyPosition = GetRandomPosition();
@@ -61,11 +61,12 @@ public class CelestialBodiesGenerator : MonoBehaviour
             int galaxyPrefabIndex = Mathf.RoundToInt(Random.Range(0, galaxyPrefabs.Length - 1));
 
             // Instantiating
-            var newGalaxy = Instantiate(starPrefabs[galaxyPrefabIndex], chunkPos + galaxyPosition, galaxyRotation, gameObject.transform);
+            var newGalaxy = Instantiate(galaxyPrefabs[galaxyPrefabIndex], chunkPos + galaxyPosition, galaxyRotation, gameObject.transform);
 
-            //Changing scale of the star
+            //Changing scale of the galaxy
             float scaleFactor = Random.Range(minGalaxyScale, maxGalaxyScale);
             newGalaxy.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+            Debug.Log("Galaxy spawned");
         }
     }
     Vector2 GetRandomPosition()

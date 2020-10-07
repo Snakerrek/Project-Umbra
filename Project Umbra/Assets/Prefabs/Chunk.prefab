@@ -130,9 +130,9 @@ MonoBehaviour:
   minStarScale: 0.2
   maxStarScale: 0.4
   minGalaxiesToGenerate: 0
-  maxGalaxiesToGenerate: 1
+  maxGalaxiesToGenerate: 0
   minGalaxyScale: 0
-  maxGalaxyScale: 1
+  maxGalaxyScale: 0
   chunkWidth: 32
   chunkHeight: 32
   starPrefabs:
@@ -140,7 +140,12 @@ MonoBehaviour:
   - {fileID: 5994334993055067280, guid: 724f34f010e66b54db91bb90b01724e9, type: 3}
   - {fileID: 8515874676778228532, guid: f4053214510ba3a429cffc6d99abb757, type: 3}
   - {fileID: 5193700902972688188, guid: 4e5dd41c831dea542b38afeba237d780, type: 3}
-  galaxyPrefabs: []
+  galaxyPrefabs:
+  - {fileID: 364489368006161904, guid: 5099d0aca3609bb47baac845ad2cead7, type: 3}
+  - {fileID: 3157895894683882991, guid: c22abdfcf11d7a549ade4ec9f0fce9f6, type: 3}
+  - {fileID: 2978883655246896043, guid: 3f9fc5b280b868e4885e40ab89db1cfd, type: 3}
+  - {fileID: 6032487271780721891, guid: ee99d7995f4026d47a0986d5996915b1, type: 3}
+  - {fileID: 2720765703671274902, guid: b6470d7860ef97947af8723b8afa3efb, type: 3}
 --- !u!1 &3906137668350196652
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,8 +195,8 @@ MonoBehaviour:
   maxStarScale: 0.15
   minGalaxiesToGenerate: 0
   maxGalaxiesToGenerate: 1
-  minGalaxyScale: 0
-  maxGalaxyScale: 1
+  minGalaxyScale: 0.2
+  maxGalaxyScale: 0.5
   chunkWidth: 32
   chunkHeight: 32
   starPrefabs:
@@ -199,7 +204,12 @@ MonoBehaviour:
   - {fileID: 5994334993055067280, guid: 724f34f010e66b54db91bb90b01724e9, type: 3}
   - {fileID: 8515874676778228532, guid: f4053214510ba3a429cffc6d99abb757, type: 3}
   - {fileID: 5193700902972688188, guid: 4e5dd41c831dea542b38afeba237d780, type: 3}
-  galaxyPrefabs: []
+  galaxyPrefabs:
+  - {fileID: 364489368006161904, guid: 5099d0aca3609bb47baac845ad2cead7, type: 3}
+  - {fileID: 3157895894683882991, guid: c22abdfcf11d7a549ade4ec9f0fce9f6, type: 3}
+  - {fileID: 2978883655246896043, guid: 3f9fc5b280b868e4885e40ab89db1cfd, type: 3}
+  - {fileID: 6032487271780721891, guid: ee99d7995f4026d47a0986d5996915b1, type: 3}
+  - {fileID: 2720765703671274902, guid: b6470d7860ef97947af8723b8afa3efb, type: 3}
 --- !u!1 &3906137668551700991
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,9 +371,9 @@ MonoBehaviour:
   minStarScale: 0.5
   maxStarScale: 0.75
   minGalaxiesToGenerate: 0
-  maxGalaxiesToGenerate: 1
+  maxGalaxiesToGenerate: 0
   minGalaxyScale: 0
-  maxGalaxyScale: 1
+  maxGalaxyScale: 0
   chunkWidth: 32
   chunkHeight: 32
   starPrefabs:
@@ -371,4 +381,9 @@ MonoBehaviour:
   - {fileID: 5994334993055067280, guid: 724f34f010e66b54db91bb90b01724e9, type: 3}
   - {fileID: 8515874676778228532, guid: f4053214510ba3a429cffc6d99abb757, type: 3}
   - {fileID: 5193700902972688188, guid: 4e5dd41c831dea542b38afeba237d780, type: 3}
-  galaxyPrefabs: []
+  galaxyPrefabs:
+  - {fileID: 364489368006161904, guid: 5099d0aca3609bb47baac845ad2cead7, type: 3}
+  - {fileID: 3157895894683882991, guid: c22abdfcf11d7a549ade4ec9f0fce9f6, type: 3}
+  - {fileID: 2978883655246896043, guid: 3f9fc5b280b868e4885e40ab89db1cfd, type: 3}
+  - {fileID: 6032487271780721891, guid: ee99d7995f4026d47a0986d5996915b1, type: 3}
+  - {fileID: 2720765703671274902, guid: b6470d7860ef97947af8723b8afa3efb, type: 3}
