@@ -19,7 +19,6 @@ public class ChunkManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(GetPlayerPosRelToChunk());
         if (CheckIfPlayerChangedChunk())
         {
             SpawnChunks();

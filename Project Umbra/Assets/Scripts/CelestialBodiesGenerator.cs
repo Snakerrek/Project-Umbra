@@ -25,17 +25,29 @@ public class CelestialBodiesGenerator : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] GameObject[] starPrefabs = null;
     [SerializeField] GameObject[] galaxyPrefabs = null;
+
+    Color[] colors = {
+        new Color(255f/255, 150f/255, 223f/255, 231f/255),
+        new Color(255f/255, 242f/255, 150f/255, 231f/255),
+        new Color(197f/255, 255f/255, 150f/255, 231f/255),
+        new Color(150f/255, 255f/255, 234f/255, 231f/255),
+        new Color(150f/255, 212f/255, 255f/255, 231f/255),
+        new Color(150f/255, 154f/255, 255f/255, 231f/255),
+        new Color(255f/255, 255f/255, 255f/255, 231f/255),
+
+    };
     void Start()
     {
         chunkPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
         GenerateStars();
-        GenerateGalaxies();
+        if(maxGalaxiesToGenerate > 0)
+            GenerateGalaxies();
     }
 
     void GenerateStars()
     {
         int amountOfStars = Mathf.RoundToInt(Random.Range(minStarsToGenerate, maxStarsToGenerate));
-        for(int i = 0; i <= amountOfStars; i++)
+        for(int i = 0; i < amountOfStars; i++)
         {
             // Generating random numbers
             Vector2 starPosition = GetRandomPosition();
@@ -48,12 +60,15 @@ public class CelestialBodiesGenerator : MonoBehaviour
             //Changing scale of the star
             float scaleFactor = Random.Range(minStarScale, maxStarScale);
             newStar.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+
+            //Changing color
+            newStar.GetComponent<SpriteRenderer>().color = colors[Random.Range(0, colors.Length)];
         }
     }
     void GenerateGalaxies()
     {
-        int amountOfGalaxies = Mathf.RoundToInt(Random.Range(minGalaxiesToGenerate, maxGalaxiesToGenerate));
-        for (int i = 0; i <= amountOfGalaxies; i++)
+        int amountOfGalaxies = Random.Range(minGalaxiesToGenerate, maxGalaxiesToGenerate + 1);
+        for (int i = 0; i < amountOfGalaxies; i++)
         {
             // Generating random numbers
             Vector2 galaxyPosition = GetRandomPosition();
@@ -66,7 +81,9 @@ public class CelestialBodiesGenerator : MonoBehaviour
             //Changing scale of the galaxy
             float scaleFactor = Random.Range(minGalaxyScale, maxGalaxyScale);
             newGalaxy.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
-            Debug.Log("Galaxy spawned");
+
+            //Changing color
+            newGalaxy.GetComponent<SpriteRenderer>().color = colors[Random.Range(0, colors.Length)];
         }
     }
     Vector2 GetRandomPosition()
