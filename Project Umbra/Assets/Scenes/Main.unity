@@ -137,7 +137,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 65972890}
-  - component: {fileID: 65972891}
   m_Layer: 0
   m_Name: Engine_Up
   m_TagString: Untagged
@@ -160,19 +159,6 @@ Transform:
   m_Father: {fileID: 1279315126}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &65972891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65972889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7feeb45e53b64ec4ebb7023028c80b40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fire: {fileID: 737978518}
 --- !u!4 &148045013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3906137668551700990, guid: 85a2d47b7b6687e43979240e2a782cb5, type: 3}
@@ -342,7 +328,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 562871656}
-  - component: {fileID: 562871657}
   m_Layer: 0
   m_Name: Engine_Left
   m_TagString: Untagged
@@ -365,19 +350,6 @@ Transform:
   m_Father: {fileID: 1279315126}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &562871657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562871655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 798e7b25585432a4181f0250df3e0528, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fire: {fileID: 2021896546}
 --- !u!4 &664923239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3906137668551700990, guid: 85a2d47b7b6687e43979240e2a782cb5, type: 3}
@@ -469,7 +441,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 933891166}
-  - component: {fileID: 933891167}
   m_Layer: 0
   m_Name: Engine_Right
   m_TagString: Untagged
@@ -492,19 +463,6 @@ Transform:
   m_Father: {fileID: 1279315126}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &933891167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933891165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ff0479cc64630f49917b96cd0ad3811, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fire: {fileID: 509218044}
 --- !u!1 &970930195
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +472,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 970930196}
-  - component: {fileID: 970930197}
   m_Layer: 0
   m_Name: Engine_Down
   m_TagString: Untagged
@@ -537,19 +494,6 @@ Transform:
   m_Father: {fileID: 1279315126}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &970930197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970930195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fada207e24ee872478dd954074cff96b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fire: {fileID: 835154736}
 --- !u!1001 &1141854376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -559,7 +503,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4072291257742859458, guid: 8ec5e42d33818994c9841686701c50fc, type: 3}
       propertyPath: m_Name
-      value: FireParticles
+      value: DownEngineFireParticles
       objectReference: {fileID: 0}
     - target: {fileID: 4072291257742859517, guid: 8ec5e42d33818994c9841686701c50fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -723,6 +667,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 2
   force: 50
+  leftEngineParticles: {fileID: 2021896546}
+  rightEngineParticles: {fileID: 509218044}
+  upEngineParticles: {fileID: 737978518}
+  downEngineParticles: {fileID: 835154736}
 --- !u!50 &1279315129
 Rigidbody2D:
   serializedVersion: 4
@@ -877,7 +825,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4072291257742859458, guid: 8ec5e42d33818994c9841686701c50fc, type: 3}
       propertyPath: m_Name
-      value: FireParticles
+      value: UpEngineFireParticles
       objectReference: {fileID: 0}
     - target: {fileID: 4072291257742859517, guid: 8ec5e42d33818994c9841686701c50fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1240,7 +1188,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4072291257742859458, guid: 8ec5e42d33818994c9841686701c50fc, type: 3}
       propertyPath: m_Name
-      value: FireParticles
+      value: RightEngineFireParticles
       objectReference: {fileID: 0}
     - target: {fileID: 4072291257742859517, guid: 8ec5e42d33818994c9841686701c50fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1354,15 +1302,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4072291257742859458, guid: 8ec5e42d33818994c9841686701c50fc, type: 3}
       propertyPath: m_Name
-      value: FireParticles
+      value: LeftEngineFireParticles
       objectReference: {fileID: 0}
     - target: {fileID: 4072291257742859517, guid: 8ec5e42d33818994c9841686701c50fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4072291257742859517, guid: 8ec5e42d33818994c9841686701c50fc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4072291257742859517, guid: 8ec5e42d33818994c9841686701c50fc, type: 3}
       propertyPath: m_LocalPosition.z
