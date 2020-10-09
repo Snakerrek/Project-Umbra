@@ -9,10 +9,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float force = 50.0f;
 
     [Header("Engines")]
-    [SerializeField] ParticleSystem leftEngineParticles;
-    [SerializeField] ParticleSystem rightEngineParticles;
-    [SerializeField] ParticleSystem upEngineParticles;
-    [SerializeField] ParticleSystem downEngineParticles;
+    [SerializeField] ParticleSystem leftEngineParticles = null;
+    [SerializeField] ParticleSystem rightEngineParticles = null;
+    [SerializeField] ParticleSystem upEngineParticles = null;
+    [SerializeField] ParticleSystem downEngineParticles = null;
     void Start()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();

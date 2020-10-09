@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] GameObject barrel;
-    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] GameObject barrel = null;
+    [SerializeField] GameObject projectilePrefab = null;
+    [SerializeField] float timeBetweenShots = 0.4f;
+    bool canShoot = true;
     void Update()
     {
         FaceMouse();
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0) && canShoot)
         {
-            Shoot();
+            StartCoroutine(Shoot());
         }
     }
 
@@ -27,10 +29,12 @@ public class Gun : MonoBehaviour
 
         transform.up = direction;
     }
-    void Shoot()
+    IEnumerator Shoot()
     {
+        canShoot = false;
         Vector2 position = new Vector2(barrel.transform.position.x, barrel.transform.position.y);
         Instantiate(projectilePrefab, position, transform.rotation);
-
+        yield return new WaitForSeconds(timeBetweenShots);
+        canShoot = true;
     }
 }

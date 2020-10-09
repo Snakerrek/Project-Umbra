@@ -1101,6 +1101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barrel: {fileID: 1961365058}
   projectilePrefab: {fileID: 6826159426434739492, guid: 2133834a55b872f429cb6dce00b003a5, type: 3}
+  timeBetweenShots: 0.4
 --- !u!1001 &1772175360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1235,7 +1236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961365058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.063, y: 1.277, z: 0}
+  m_LocalPosition: {x: 0.006, y: 1.279, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1681755051}
