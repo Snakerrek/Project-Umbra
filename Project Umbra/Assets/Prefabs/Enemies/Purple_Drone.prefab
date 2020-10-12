@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1062262606}
   m_Layer: 0
   m_Name: Purple_Drone
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,8 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fe0c46f821aa645a15ce7f92ed02d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 5
   enemyOffset: 4
-  enemySpeed: 3
+  enemySpeed: 2
+  enemyShootDistance: 6
+  enemyShootRatio: 3
+  projectilePrefab: {fileID: 3677036525311813843, guid: 7da6caf3ec645a140b95416c64acce04, type: 3}
 --- !u!212 &3060640892414607195
 SpriteRenderer:
   m_ObjectHideFlags: 0

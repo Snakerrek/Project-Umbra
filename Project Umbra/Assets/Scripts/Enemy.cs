@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Enemy Settingss")]
+
+    [SerializeField] int health = 2;
+
     [Header("Movement Settings")]
 
     [SerializeField] float enemyOffset = 4.0f;
@@ -28,6 +32,16 @@ public class Enemy : MonoBehaviour
 
         FollowPlayer();
         FacePlayer();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "PlayerLaser")
+        {
+            DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+            ProcessHit(damageDealer);
+            Debug.Log("Enemy got hit");  // Debug purposes
+        }
     }
 
     IEnumerator Shoot()
@@ -72,5 +86,19 @@ public class Enemy : MonoBehaviour
             );
 
         transform.up = direction;
+    }
+
+    void Die()
+    {
+        Debug.Log("Spaceship destroyed");  // Debug purposes
+        Destroy(gameObject);
+    }
+
+    void ProcessHit(DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage();
+        damageDealer.Hit();
+        if (health <= 0)
+            Die();
     }
 }

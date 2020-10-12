@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2094328572}
   - component: {fileID: 2094328573}
   - component: {fileID: 2239013585937808373}
+  - component: {fileID: 1896994666633284226}
   m_Layer: 0
   m_Name: Green_laser
-  m_TagString: Untagged
+  m_TagString: PlayerLaser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,3 +137,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4000
   lifespan: 3
+--- !u!114 &1896994666633284226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6826159426434739492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473ba1d617edde241bc00b4559ccbe72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
