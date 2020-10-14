@@ -16,13 +16,14 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float maxSpawnDistanceFromPlayer = 20.0f;
 
     [SerializeField][Range(0, 1)] float chanceForSuccessfulSpawn = 0; 
-    
-    [SerializeField] GameObject[] enemyPrefabs;
+    [SerializeField] GameObject[] enemyPrefabs = null;
     Player player;
+    AnimationController animationController;
 
     float spawnTime;
     private void Start()
     {
+        animationController = FindObjectOfType<AnimationController>();
         player = FindObjectOfType<Player>();
         spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
         InvokeRepeating("Spawn", spawnTime, spawnTime);
@@ -40,9 +41,11 @@ public class EnemySpawner : MonoBehaviour
                 var newEnemy = Instantiate(enemyPrefabs[prefabIndex], CalculatePosition(), Quaternion.identity);
                 newEnemy.transform.parent = gameObject.transform;
             }
+
+            if (numberOfEnemies != 0)
+                animationController.PlayEnemySpawnText(); // showing text that informs about wave
         }
 
-        // ADD SOME KIND OF INFORMATION FOR PLAYER THAT WAVE IS COMING
 
         spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
     }
@@ -50,16 +53,8 @@ public class EnemySpawner : MonoBehaviour
     private bool SpawnOrNot()
     {
         float randomNumber = Random.Range(0.0f, 1.0f);
-        if (randomNumber <= chanceForSuccessfulSpawn)
-        {
-            Debug.Log("Successful spawn");
-            return true;
-        }
-        else
-        {
-            Debug.Log("Not successful spawn");
-            return false;
-        }
+        if (randomNumber <= chanceForSuccessfulSpawn) { return true; }
+            else { return false; }
     }
     private Vector2 CalculatePosition()
     {
