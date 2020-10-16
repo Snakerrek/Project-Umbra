@@ -5,7 +5,7 @@
 Features: <br/>
 -randomly generated worldspace (chunk system), <br/>
 -player able to shoot and destroy enemy, <br/>
--enemy following player and shooting at him, <br/>
+-enemy following and shooting player, <br/>
 -spawn systems that randomly spawn enemies and spaec obstacles, <br/>
 -Save/Load system with binary files. <br/>
 <br/>
