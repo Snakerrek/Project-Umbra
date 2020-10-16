@@ -9,4 +9,4 @@ Features: <br/>
 -spawn systems that randomly spawn enemies and space obstacles, <br/>
 -Save/Load system with binary files. <br/>
 <br/>
-[Informations will be updated as the game grows.]
+[Information will be updated as the game grows.]
