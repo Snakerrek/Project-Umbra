@@ -490,8 +490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minEnemyNumberPerSpawn: 0
   maxEnemyNumberPerSpawn: 5
-  minSpawnTime: 10
-  maxSpawnTime: 60
+  minSpawnTime: 5
+  maxSpawnTime: 10
   minSpawnDistanceFromPlayer: 15
   maxSpawnDistanceFromPlayer: 25
   chanceForSuccessfulSpawn: 0.5

@@ -109,8 +109,6 @@ public class Enemy : MonoBehaviour
 
     void DropCoins(int amount)
     {
-        for(int i = 0; i < amount; i++)
-            Instantiate(coinPrefab, gameObject.transform.position, Quaternion.identity);
-        //TODO add some kind of randomized animation of coins dropping
+        Instantiate(coinPrefab, gameObject.transform.position, Quaternion.identity);
     }
 }

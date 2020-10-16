@@ -17,7 +17,8 @@ public class Player : MonoBehaviour
 
         if(other.tag == "Coin")
         {
-            FindObjectOfType<GameController>().AddCoins(1);
+            int value = other.gameObject.GetComponent<Coin>().GetValue();
+            FindObjectOfType<GameController>().AddCoins(value);
             Destroy(other.gameObject);
         }
     }
