@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Enemy Settingss")]
+    [Header("Enemy Settings")]
 
     [SerializeField] int health = 2;
+    [SerializeField] int coinsToDrop = 1;
 
     [Header("Movement Settings")]
 
@@ -17,7 +18,10 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float enemyShootDistance = 6.0f;
     [SerializeField] float enemyShootRatio = 2.0f;
+
+    [Header("Prefabs")]
     [SerializeField] GameObject projectilePrefab = null;
+    [SerializeField] GameObject coinPrefab = null;
 
     Player player;
     bool canShoot = true;
@@ -91,6 +95,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Debug.Log("Spaceship destroyed");  // Debug purposes
+        DropCoins(coinsToDrop);
         Destroy(gameObject);
     }
 
@@ -100,5 +105,12 @@ public class Enemy : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
             Die();
+    }
+
+    void DropCoins(int amount)
+    {
+        for(int i = 0; i < amount; i++)
+            Instantiate(coinPrefab, gameObject.transform.position, Quaternion.identity);
+        //TODO add some kind of randomized animation of coins dropping
     }
 }

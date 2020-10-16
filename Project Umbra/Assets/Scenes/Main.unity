@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffcc4e9cbaea87418892f69fb90619d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 0
+  coinsText: {fileID: 651270241}
 --- !u!4 &540641171
 Transform:
   m_ObjectHideFlags: 0
@@ -801,7 +801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 123456
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac4978eb780d86349ad4cd97b1d989d5, type: 2}
   m_sharedMaterial: {fileID: 4739080145705823106, guid: ac4978eb780d86349ad4cd97b1d989d5, type: 2}

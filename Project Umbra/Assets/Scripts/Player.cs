@@ -14,6 +14,12 @@ public class Player : MonoBehaviour
             ProcessHit(damageDealer);
             Debug.Log("Player got hit"); // Debug purposes
         }
+
+        if(other.tag == "Coin")
+        {
+            FindObjectOfType<GameController>().AddCoins(1);
+            Destroy(other.gameObject);
+        }
     }
 
     void ProcessHit(DamageDealer damageDealer)

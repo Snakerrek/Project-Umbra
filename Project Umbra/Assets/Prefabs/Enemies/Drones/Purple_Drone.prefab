@@ -52,6 +52,7 @@ MonoBehaviour:
   enemyShootDistance: 6
   enemyShootRatio: 3
   projectilePrefab: {fileID: 3677036525311813843, guid: 7da6caf3ec645a140b95416c64acce04, type: 3}
+  coinPrefab: {fileID: 7005365215713296459, guid: 524557d8b6192394ba1c87e54c1ce0ed, type: 3}
 --- !u!212 &3060640892414607195
 SpriteRenderer:
   m_ObjectHideFlags: 0
