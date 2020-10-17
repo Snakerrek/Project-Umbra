@@ -192,7 +192,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &63713233 stripped
 Transform:
@@ -499,12 +499,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minEnemyNumberPerSpawn: 1
-  maxEnemyNumberPerSpawn: 1
-  minSpawnTime: 1
-  maxSpawnTime: 1
+  maxEnemyNumberPerSpawn: 5
+  minSpawnTime: 10
+  maxSpawnTime: 60
   minSpawnDistanceFromPlayer: 15
   maxSpawnDistanceFromPlayer: 25
-  chanceForSuccessfulSpawn: 1
+  chanceForSuccessfulSpawn: 0
   enemyPrefabs:
   - {fileID: 2832389862702092329, guid: e8d8e98929c607f4cb3972121b95ad5c, type: 3}
   - {fileID: 87211661908189370, guid: 1cafc3d6215982a4083f29f27fe16129, type: 3}
@@ -773,7 +773,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &562871655
 GameObject:
@@ -2036,7 +2036,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1961365058
 GameObject:
