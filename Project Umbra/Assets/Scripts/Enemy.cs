@@ -24,10 +24,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject coinPrefab = null;
 
     Player player;
+    AnimationController animationController;
     bool canShoot = true;
     private void Start()
     {
         player = FindObjectOfType<Player>();
+        animationController = FindObjectOfType<AnimationController>();
     }
     void FixedUpdate()
     {
@@ -42,9 +44,9 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag == "PlayerLaser")
         {
+            ManagePlayerLaserExplosionAnim(other);
             DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
             ProcessHit(damageDealer);
-            Debug.Log("Enemy got hit");  // Debug purposes
         }
     }
 
@@ -94,9 +96,9 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Spaceship destroyed");  // Debug purposes
         DropCoins(coinsToDrop);
         Destroy(gameObject);
+        animationController.PlayEnemyExplosion(transform.position);
     }
 
     void ProcessHit(DamageDealer damageDealer)
@@ -110,5 +112,11 @@ public class Enemy : MonoBehaviour
     void DropCoins(int amount)
     {
         Instantiate(coinPrefab, gameObject.transform.position, Quaternion.identity);
+    }
+
+    void ManagePlayerLaserExplosionAnim(Collider2D laser)
+    {
+        if (laser.gameObject.name == "Green_laser(Clone)")
+            animationController.PlayGreenPlayerLaserExplosion(laser.transform.position);
     }
 }

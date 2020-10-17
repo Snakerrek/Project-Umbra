@@ -20,4 +20,5 @@ public class Projectile : MonoBehaviour
         rb.AddForce(rb.transform.up * speed * Time.deltaTime);
         Destroy(gameObject, lifespan);
     }
+
 }

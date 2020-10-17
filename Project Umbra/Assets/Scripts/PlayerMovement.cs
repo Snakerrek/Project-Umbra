@@ -9,10 +9,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float force = 50.0f;
 
     [Header("Engines")]
-    [SerializeField] ParticleSystem leftEngineParticles = null;
-    [SerializeField] ParticleSystem rightEngineParticles = null;
-    [SerializeField] ParticleSystem upEngineParticles = null;
-    [SerializeField] ParticleSystem downEngineParticles = null;
+    [SerializeField] ParticleSystem[] leftEngineParticles = null;
+    [SerializeField] ParticleSystem[] rightEngineParticles = null;
+    [SerializeField] ParticleSystem[] upEngineParticles = null;
+    [SerializeField] ParticleSystem[] downEngineParticles = null;
     void Start()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
@@ -27,33 +27,41 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("up") || Input.GetKey("w"))
         {
             rb2D.AddForce(new Vector2(0, force * Time.deltaTime));
-            downEngineParticles.Play();
+            foreach(ParticleSystem particle in downEngineParticles)
+                particle.Play();
         }
         else
-            downEngineParticles.Stop();
+            foreach (ParticleSystem particle in downEngineParticles)
+                particle.Stop();
 
         if (Input.GetKey("down") || Input.GetKey("s"))
         {
             rb2D.AddForce(new Vector2(0, -force * Time.deltaTime));
-            upEngineParticles.Play();
+            foreach (ParticleSystem particle in upEngineParticles)
+                particle.Play();
         }
         else
-            upEngineParticles.Stop();
+            foreach (ParticleSystem particle in upEngineParticles)
+                particle.Stop();
 
         if (Input.GetKey("left") || Input.GetKey("a"))
         {
             rb2D.AddForce(new Vector2(-force * Time.deltaTime, 0));
-            rightEngineParticles.Play();
+            foreach (ParticleSystem particle in rightEngineParticles)
+                particle.Play();
         }
         else
-            rightEngineParticles.Stop();
+            foreach (ParticleSystem particle in rightEngineParticles)
+                particle.Stop();
         if (Input.GetKey("right") || Input.GetKey("d"))
         {
             rb2D.AddForce(new Vector2(force * Time.deltaTime, 0));
-            leftEngineParticles.Play();
+            foreach (ParticleSystem particle in leftEngineParticles)
+                particle.Play();
         }
         else
-            leftEngineParticles.Stop();
+            foreach (ParticleSystem particle in leftEngineParticles)
+                particle.Stop();
 
         rb2D.velocity = (Vector3.ClampMagnitude(rb2D.velocity, maxSpeed));
     }
