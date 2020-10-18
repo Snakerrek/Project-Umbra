@@ -19,7 +19,7 @@ public class Coin : MonoBehaviour
         GameObject coinText = transform.GetChild(0).gameObject;
         TextMeshPro coinTextTMP = coinText.GetComponent<TextMeshPro>();
         coinTextTMP.text = "x" + value.ToString();
-        Destroy(this, 60.0f);
+        Destroy(gameObject, 60.0f);
     }
 
     public int GetValue()

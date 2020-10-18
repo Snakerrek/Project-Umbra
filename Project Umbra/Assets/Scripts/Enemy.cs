@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Enemy Settings")]
-
     [SerializeField] int health = 2;
     [SerializeField] int coinsToDrop = 1;
 
@@ -22,12 +21,15 @@ public class Enemy : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] GameObject projectilePrefab = null;
     [SerializeField] GameObject coinPrefab = null;
+    [SerializeField] EnemyHealthBar healthBar = null;
 
     Player player;
     AnimationController animationController;
+
     bool canShoot = true;
     private void Start()
     {
+        healthBar.SetMaxHealth(health);
         player = FindObjectOfType<Player>();
         animationController = FindObjectOfType<AnimationController>();
     }
@@ -103,10 +105,19 @@ public class Enemy : MonoBehaviour
 
     void ProcessHit(DamageDealer damageDealer)
     {
-        health -= damageDealer.GetDamage();
-        damageDealer.Hit();
-        if (health <= 0)
+        if (health - damageDealer.GetDamage() > 0)
+        {
+            health -= damageDealer.GetDamage();
+            healthBar.SetHealth(health);
+        }
+        else
+        {
+            health = 0;
+            healthBar.SetHealth(health);
             Die();
+        }
+
+        damageDealer.Hit();
     }
 
     void DropCoins(int amount)
