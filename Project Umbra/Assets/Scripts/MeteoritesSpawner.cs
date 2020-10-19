@@ -6,6 +6,8 @@ public class MeteoritesSpawner : MonoBehaviour
 {
     [Header("Spawner tweaks")]
     [SerializeField] float timeBetweenMeteoritesSpawn = 300.0f;
+    [SerializeField] float maxSize = 1.0f;
+    [SerializeField] float minSize = 0.2f;
 
     [SerializeField] GameObject[] meteoritesPrefabs = null;
     Player player;
@@ -61,6 +63,11 @@ public class MeteoritesSpawner : MonoBehaviour
     {
         int prefabIndex = Random.Range(0, meteoritesPrefabs.Length);
         var meteorite = Instantiate(meteoritesPrefabs[prefabIndex], position + new Vector2(x, y), Quaternion.identity);
+
+        float scaleFactor = Random.Range(minSize*10, maxSize*10);
+        meteorite.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+
         meteorite.transform.parent = gameObject.transform;
+
     }
 }
