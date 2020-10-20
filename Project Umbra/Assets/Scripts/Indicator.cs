@@ -35,7 +35,7 @@ public class Indicator : MonoBehaviour
 
             RaycastHit2D ray = Physics2D.Raycast(target.position, direction);
 
-            if (ray.collider != null)
+            if (ray.collider.name == "CamBox")
             {
                 indicator.transform.position = ray.point;
             }
