@@ -11,9 +11,10 @@ public class Gun : MonoBehaviour
     void Update()
     {
         FaceMouse();
-        if (Input.GetKey(KeyCode.Mouse0) && canShoot)
+        if (Input.GetKey(KeyCode.Mouse0))
         {
-            StartCoroutine(Shoot());
+            if(canShoot)
+                StartCoroutine(Shoot());
         }
     }
 
