@@ -27,6 +27,15 @@ public class Meteorite : MonoBehaviour
             Destroy(gameObject);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "PlayerLaser")
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+    }
+
     void FacePlayer()
     {
         Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y);

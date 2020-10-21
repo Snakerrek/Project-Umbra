@@ -556,7 +556,7 @@ MonoBehaviour:
   maxSpawnTime: 5
   minSpawnDistanceFromPlayer: 15
   maxSpawnDistanceFromPlayer: 25
-  chanceForSuccessfulSpawn: 1
+  chanceForSuccessfulSpawn: 0
   enemyPrefabs:
   - {fileID: 2832389862702092329, guid: e8d8e98929c607f4cb3972121b95ad5c, type: 3}
   - {fileID: 87211661908189370, guid: 1cafc3d6215982a4083f29f27fe16129, type: 3}
@@ -2364,11 +2364,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a389ed16df7d7fa4e86ee8c8f1d0b5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenMeteoritesSpawn: 300
+  timeBetweenMeteoritesSpawn: 5
   maxSize: 1
-  minSize: 0.2
+  minSize: 0.1
   meteoritesPrefabs:
-  - {fileID: 8037649333480290822, guid: 363533b8108225d44acd282899f82d14, type: 3}
+  - {fileID: 5210143653091632497, guid: 381cc61820023d24392323e8728ea502, type: 3}
+  - {fileID: 5065975271282807104, guid: 799821f9fbd14a948aeaefd5b1e96579, type: 3}
+  - {fileID: 4578161660999624753, guid: 7eae551aac297e5469da01152ac829dd, type: 3}
+  - {fileID: 8382638639735754839, guid: 8997eb126a459c04ab26102d2fd28f09, type: 3}
 --- !u!4 &1915273927
 Transform:
   m_ObjectHideFlags: 0

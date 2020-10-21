@@ -64,7 +64,7 @@ public class MeteoritesSpawner : MonoBehaviour
         int prefabIndex = Random.Range(0, meteoritesPrefabs.Length);
         var meteorite = Instantiate(meteoritesPrefabs[prefabIndex], position + new Vector2(x, y), Quaternion.identity);
 
-        float scaleFactor = Random.Range(minSize*10, maxSize*10);
+        float scaleFactor = Random.Range(minSize, maxSize);
         meteorite.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
 
         meteorite.transform.parent = gameObject.transform;
