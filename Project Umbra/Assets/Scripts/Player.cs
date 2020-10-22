@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] int health; // Serialized for debugging purposes
 
     AnimationController animationController;
+    GameController gameController;
     [SerializeField] PlayerHealthBar healthBar = null;
 
     private void Start()
@@ -15,6 +16,13 @@ public class Player : MonoBehaviour
         health = maxHealth;
         healthBar.SetMaxHealth(health);
         animationController = FindObjectOfType<AnimationController>();
+        gameController = FindObjectOfType<GameController>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("v"))
+            gameController.UseSpiralOfFire();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

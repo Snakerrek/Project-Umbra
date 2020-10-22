@@ -12,6 +12,11 @@ public class GameController : MonoBehaviour
     const float dataSaveTimePeriod = 15.0f;
     private int coins = 0;
 
+    [Header("SuperSkills Prefabs")]
+    [SerializeField] GameObject spiralOfFirePrefab = null;
+
+    Player player;
+
     private void Awake()
     {
         LoadData();
@@ -19,6 +24,8 @@ public class GameController : MonoBehaviour
     }
     private void Start()
     {
+        player = FindObjectOfType<Player>();
+
         InvokeRepeating("SaveData", dataSaveTimePeriod, dataSaveTimePeriod); // Saving game data every *dataSaveTimePeriod* seconds
     }
 
@@ -70,5 +77,13 @@ public class GameController : MonoBehaviour
         coins = data.coins;
         Debug.Log("Data loaded");
     }
+    #endregion
+
+    #region SuperSkills Methods
+    public void UseSpiralOfFire()
+    {
+        Instantiate(spiralOfFirePrefab, player.transform.position, Quaternion.identity);
+    }
+
     #endregion
 }
