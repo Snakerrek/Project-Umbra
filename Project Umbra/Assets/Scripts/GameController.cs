@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class GameController : MonoBehaviour
 {
@@ -15,7 +17,10 @@ public class GameController : MonoBehaviour
     [Header("SuperSkills")]
     [SerializeField] GameObject spiralOfFirePrefab = null;
     [SerializeField] float spiralOfFireCooldown = 30.0f;
+    [SerializeField] GameObject spiralOfFireShadow = null;
+    [SerializeField] GameObject spiralOfFireCooldownText = null;
     private float spiralOfFireCooldownTmp;
+    private Text spiralOfFireText;
 
 
     Player player;
@@ -28,6 +33,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>();
+        spiralOfFireText = spiralOfFireCooldownText.GetComponent<Text>();
 
         //Setting all cooldowns to 0
         spiralOfFireCooldownTmp = 0.0f;
@@ -48,10 +54,7 @@ public class GameController : MonoBehaviour
         }
 
         // Superskills cooldowns
-        if(spiralOfFireCooldown > 0.0f)
-        {
-            spiralOfFireCooldownTmp -= Time.deltaTime;
-        }
+        SpiralOfFireCooldown();
     }
 
     #region Coins Methods
@@ -98,9 +101,26 @@ public class GameController : MonoBehaviour
         {
             Instantiate(spiralOfFirePrefab, player.transform.position, Quaternion.identity);
             spiralOfFireCooldownTmp = spiralOfFireCooldown;
+            spiralOfFireShadow.SetActive(true);
         }
         else
             Debug.Log("Skill have cooldown of: " + spiralOfFireCooldownTmp + "s.");
+    }
+
+    private void SpiralOfFireCooldown()
+    {
+        if (spiralOfFireCooldownTmp > 0.0f)
+        {
+            spiralOfFireCooldownTmp -= Time.deltaTime;
+            spiralOfFireText.text = Mathf.CeilToInt(spiralOfFireCooldownTmp).ToString();
+            spiralOfFireText.color = Color.white;
+        }
+        else
+        {
+            spiralOfFireShadow.SetActive(false);
+            spiralOfFireText.text = "V";
+            spiralOfFireText.color = Color.black;
+        }
     }
 
     #endregion
