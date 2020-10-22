@@ -9,6 +9,7 @@ TagManager:
   - PlayerLaser
   - Coin
   - Heal
+  - SuperSkill
   layers:
   - Default
   - TransparentFX

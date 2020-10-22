@@ -32,8 +32,10 @@ public class Meteorite : MonoBehaviour
         if (collision.gameObject.tag == "PlayerLaser")
         {
             Destroy(collision.gameObject);
-            Destroy(gameObject);
+            DestroyMeteorite();
         }
+        if (collision.gameObject.tag == "SuperSkill")
+            DestroyMeteorite();
     }
 
     void FacePlayer()
@@ -56,5 +58,10 @@ public class Meteorite : MonoBehaviour
 
         distance = Mathf.Sqrt(Mathf.Pow(meteoritePos.x - playerPos.x, 2) + Mathf.Pow(meteoritePos.y - playerPos.y, 2));
         return distance;
+    }
+
+    void DestroyMeteorite()
+    {
+        Destroy(gameObject);
     }
 }

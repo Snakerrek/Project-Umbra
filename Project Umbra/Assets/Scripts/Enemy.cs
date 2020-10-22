@@ -50,6 +50,12 @@ public class Enemy : MonoBehaviour
             ManagePlayerLaserExplosionAnim(other);
             DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
             ProcessHit(damageDealer);
+            damageDealer.Hit();
+        }
+        if(other.tag == "SuperSkill")
+        {
+            DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+            ProcessHit(damageDealer);
         }
     }
 
@@ -122,8 +128,6 @@ public class Enemy : MonoBehaviour
             healthBar.SetHealth(health);
             Die();
         }
-
-        damageDealer.Hit();
     }
 
     void DropCoins(int amount)

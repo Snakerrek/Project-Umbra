@@ -14,6 +14,5 @@ public class DamageDealer : MonoBehaviour
     public void Hit()
     {
         Destroy(gameObject);
-        // Add some kind of hit animation / particles
     }
 }
