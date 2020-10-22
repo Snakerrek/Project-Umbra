@@ -12,8 +12,11 @@ public class GameController : MonoBehaviour
     const float dataSaveTimePeriod = 15.0f;
     private int coins = 0;
 
-    [Header("SuperSkills Prefabs")]
+    [Header("SuperSkills")]
     [SerializeField] GameObject spiralOfFirePrefab = null;
+    [SerializeField] float spiralOfFireCooldown = 30.0f;
+    private float spiralOfFireCooldownTmp;
+
 
     Player player;
 
@@ -25,6 +28,9 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>();
+
+        //Setting all cooldowns to 0
+        spiralOfFireCooldownTmp = 0.0f;
 
         InvokeRepeating("SaveData", dataSaveTimePeriod, dataSaveTimePeriod); // Saving game data every *dataSaveTimePeriod* seconds
     }
@@ -39,6 +45,12 @@ public class GameController : MonoBehaviour
         if(Input.GetKeyDown("p"))
         {
             subtractCoins(10);
+        }
+
+        // Superskills cooldowns
+        if(spiralOfFireCooldown > 0.0f)
+        {
+            spiralOfFireCooldownTmp -= Time.deltaTime;
         }
     }
 
@@ -82,7 +94,13 @@ public class GameController : MonoBehaviour
     #region SuperSkills Methods
     public void UseSpiralOfFire()
     {
-        Instantiate(spiralOfFirePrefab, player.transform.position, Quaternion.identity);
+        if (spiralOfFireCooldownTmp <= 0.0f)
+        {
+            Instantiate(spiralOfFirePrefab, player.transform.position, Quaternion.identity);
+            spiralOfFireCooldownTmp = spiralOfFireCooldown;
+        }
+        else
+            Debug.Log("Skill have cooldown of: " + spiralOfFireCooldownTmp + "s.");
     }
 
     #endregion
