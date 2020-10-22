@@ -56,6 +56,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3677036525311813843, guid: 7da6caf3ec645a140b95416c64acce04, type: 3}
   coinPrefab: {fileID: 4331923998606251596, guid: 524557d8b6192394ba1c87e54c1ce0ed, type: 3}
   healthBar: {fileID: 7650018026636934149}
+  healPrefab: {fileID: 1278678447128516835, guid: 2f48f42983f68bd44a7a4ff93ba49de9, type: 3}
 --- !u!212 &3224796530027466366
 SpriteRenderer:
   m_ObjectHideFlags: 0

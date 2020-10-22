@@ -8,6 +8,7 @@ TagManager:
   - EnemyLaser
   - PlayerLaser
   - Coin
+  - Heal
   layers:
   - Default
   - TransparentFX

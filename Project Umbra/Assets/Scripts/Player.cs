@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] int health = 5;
+    [SerializeField] int maxHealth = 100;
+    [SerializeField] int health; // Serialized for debugging purposes
 
     AnimationController animationController;
     [SerializeField] PlayerHealthBar healthBar = null;
 
     private void Start()
     {
+        health = maxHealth;
         healthBar.SetMaxHealth(health);
         animationController = FindObjectOfType<AnimationController>();
     }
@@ -27,6 +29,18 @@ public class Player : MonoBehaviour
         {
             int value = other.gameObject.GetComponent<Coin>().GetValue();
             FindObjectOfType<GameController>().AddCoins(value);
+            Destroy(other.gameObject);
+        }
+
+        if(other.tag == "Heal")
+        {
+            Heal heal = other.gameObject.GetComponent<Heal>();
+            int value = heal.GetHealAmount();
+            if (health + value >= maxHealth)
+                health = maxHealth;
+            else
+                health += value;
+            healthBar.SetHealth(health);
             Destroy(other.gameObject);
         }
     }

@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject projectilePrefab = null;
     [SerializeField] GameObject coinPrefab = null;
     [SerializeField] EnemyHealthBar healthBar = null;
+    [SerializeField] GameObject healPrefab = null;
 
     Player player;
     AnimationController animationController;
@@ -98,7 +99,12 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        DropCoins(coinsToDrop);
+        float random = Random.Range(0.0f, 1.0f);
+        if (random <= 0.1) // 10% chance for heal drop
+            DropHeal();
+        else
+            DropCoins(coinsToDrop);
+        Debug.Log(random);
         Destroy(gameObject);
         animationController.PlayEnemyExplosion(transform.position);
     }
@@ -123,6 +129,11 @@ public class Enemy : MonoBehaviour
     void DropCoins(int amount)
     {
         Instantiate(coinPrefab, gameObject.transform.position, Quaternion.identity);
+    }
+
+    void DropHeal()
+    {
+        Instantiate(healPrefab, gameObject.transform.position, Quaternion.identity);
     }
 
     void ManagePlayerLaserExplosionAnim(Collider2D laser)

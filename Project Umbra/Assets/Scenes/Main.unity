@@ -270,7 +270,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 52aac067b8a0fd7498aaf9bf46da7489, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -556,7 +556,7 @@ MonoBehaviour:
   maxSpawnTime: 5
   minSpawnDistanceFromPlayer: 15
   maxSpawnDistanceFromPlayer: 25
-  chanceForSuccessfulSpawn: 0
+  chanceForSuccessfulSpawn: 1
   enemyPrefabs:
   - {fileID: 2832389862702092329, guid: e8d8e98929c607f4cb3972121b95ad5c, type: 3}
   - {fileID: 87211661908189370, guid: 1cafc3d6215982a4083f29f27fe16129, type: 3}
@@ -956,7 +956,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 52aac067b8a0fd7498aaf9bf46da7489, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1241,7 +1241,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 52aac067b8a0fd7498aaf9bf46da7489, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1329,7 +1329,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 52aac067b8a0fd7498aaf9bf46da7489, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1674,7 +1674,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dda7bf6913b36a45b67b8d43de8bdd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  maxHealth: 100
+  health: 0
   healthBar: {fileID: 3705398184954956569}
 --- !u!114 &1279315128
 MonoBehaviour:
@@ -2364,7 +2365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a389ed16df7d7fa4e86ee8c8f1d0b5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenMeteoritesSpawn: 5
+  timeBetweenMeteoritesSpawn: 300
   maxSize: 1
   minSize: 0.1
   meteoritesPrefabs:
@@ -2709,7 +2710,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.8, y: -37.3}
+  m_AnchoredPosition: {x: 164.80005, y: -37.30005}
   m_SizeDelta: {x: 623.09485, y: 63.07173}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3705398184954956567
