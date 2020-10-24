@@ -56,9 +56,10 @@ public class SpiralOfFire : MonoBehaviour
     IEnumerator Shrink()
     {
         yield return new WaitForSeconds(0.1f);
-        transform.localScale -= new Vector3(0.005f, 0.005f, 0.005f);
-        if(transform.localScale.x <= 0.0f)
-            Destroy(gameObject);
+        if(transform.localScale.x > 0.0f)
+            transform.localScale -= new Vector3(0.005f, 0.005f, 0.005f);
+        else
+            Destroy(gameObject, 2.0f);
     }
 
 }
