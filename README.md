@@ -11,4 +11,3 @@ Features: <br/>
 -health system, <br/>
 -superskills.
 <br/>
-[Information will be updated as the game grows.]
