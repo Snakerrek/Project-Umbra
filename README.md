@@ -1,7 +1,8 @@
 # Project-Umbra
 
 
-2D space shooter. <br/>
+## 2D space shooter. <br/>
+
 Features:
 
 - randomly generated worldspace (chunk system),
