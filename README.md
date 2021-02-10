@@ -3,7 +3,7 @@
 
 ## 2D space shooter. <br/>
 
-Features:
+### Features:
 
 - randomly generated worldspace (chunk system),
 
