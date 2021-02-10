@@ -2,12 +2,12 @@
 
 
 2D space shooter. <br/>
-Features: <br/>
--randomly generated worldspace (chunk system), <br/>
--player able to shoot and destroy enemy, <br/>
--enemy following and shooting player, <br/>
--spawn systems that randomly spawn enemies and space obstacles, <br/>
--save/load system with binary files. <br/>
--health system, <br/>
--superskills.
-<br/>
+Features:
+
+- randomly generated worldspace (chunk system),
+- player able to shoot and destroy enemy,
+- enemy following and shooting player,
+- spawn systems that randomly spawn enemies and space obstacles,
+- save/load system with binary files,
+- health system,
+- superskills.
