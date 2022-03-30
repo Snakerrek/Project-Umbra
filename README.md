@@ -1,7 +1,10 @@
 # Project-Umbra
+<br>2D space shooter with random world generation, enemies and more.<br>
 
-
-## 2D space shooter. <br/>
+<b>Technology:</b><br>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" width="50">
+<img src="https://www.vectorlogo.zone/logos/unity3d/unity3d-icon.svg" width="50">
+<br>
 
 ### Features:
 
